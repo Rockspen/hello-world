@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+    <style>
+      :root {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        color: #0f172a;
+        background-color: #f8fafc;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .app {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+        width: min(720px, 90vw);
+      }
+      h1 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+      form {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      label {
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+        color: #475569;
+        font-size: 0.95rem;
+      }
+      input {
+        margin-top: 0.35rem;
+        padding: 0.65rem 0.75rem;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        background: #f8fafc;
+        font-size: 1rem;
+      }
+      button {
+        border: none;
+        border-radius: 10px;
+        padding: 0.85rem 1.2rem;
+        background: #2563eb;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.15s ease;
+        align-self: end;
+      }
+      button:hover {
+        background: #1d4ed8;
+      }
+      .list {
+        display: grid;
+        gap: 0.75rem;
+      }
+      .card {
+        padding: 1rem;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        background: #f8fafc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .card strong {
+        display: block;
+        font-size: 1.05rem;
+        margin-bottom: 0.25rem;
+      }
+      .pill {
+        display: inline-block;
+        background: #e0f2fe;
+        color: #0ea5e9;
+        padding: 0.35rem 0.65rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+      .empty {
+        text-align: center;
+        color: #94a3b8;
+        padding: 1rem;
+      }
+      .message {
+        margin-bottom: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        font-weight: 600;
+      }
+      .error {
+        background: #fef2f2;
+        color: #b91c1c;
+        border: 1px solid #fecdd3;
+      }
+      .success {
+        background: #ecfdf3;
+        color: #15803d;
+        border: 1px solid #bbf7d0;
+      }
+      @media (max-width: 640px) {
+        form {
+          grid-template-columns: 1fr;
+        }
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <h1>Movie Tracker</h1>
+      <p>Track the movies you're interested in and where to stream them.</p>
+      <div id="message" role="status"></div>
+      <form id="movie-form">
+        <label>
+          Title
+          <input type="text" id="title" name="title" placeholder="e.g. Arrival" required />
+        </label>
+        <label>
+          Platform
+          <input type="text" id="platform" name="platform" placeholder="e.g. Netflix" required />
+        </label>
+        <button type="submit">Add Movie</button>
+      </form>
+      <section class="list" id="movie-list"></section>
+    </main>
+    <script type="module" src="./dist/main.js"></script>
+  </body>
+</html>
